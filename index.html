@@ -96,6 +96,30 @@
       color: #c0392b;
       font-size: 36px;
     }
+
+    .high-score {
+      font-size: 18px;
+      color: #8e44ad;
+      margin: 10px 0;
+    }
+
+    .high-score span {
+      font-weight: bold;
+    }
+
+    .new-high-score {
+      display: none;
+      font-size: 24px;
+      color: #f39c12;
+      font-weight: bold;
+      margin: 15px 0;
+      animation: pulse 0.6s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
   </style>
 </head>
 <body>
@@ -104,6 +128,7 @@
   <h1>Whack-a-Mole</h1>
   <p>Click the moles as they pop up!</p>
   <p>You have 3 lives. Miss a mole or click the wrong hole and you lose a life!</p>
+  <div class="high-score">High Score: <span id="menuHighScore">0</span></div>
   <button id="startBtn">Start Game</button>
 </div>
 
@@ -129,6 +154,8 @@
 <div class="end-screen" id="endScreen">
   <h2>Game Over!</h2>
   <div class="final-score">Final Score: <span id="finalScore">0</span></div>
+  <div class="new-high-score" id="newHighScoreMsg">New High Score!</div>
+  <div class="high-score">High Score: <span id="highScore">0</span></div>
   <button id="playAgainBtn">Play Again</button>
 </div>
 
