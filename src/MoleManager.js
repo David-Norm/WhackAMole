@@ -25,14 +25,17 @@ class MoleManager {
             if (this.moleTimeout !== undefined) {
                 clearTimeout(this.moleTimeout);
             }
-        } else {
-            this.onMoleMissed();
         }
     }
 
     showRandomMole() {
         if (this.moleTimeout !== undefined) {
             clearTimeout(this.moleTimeout);
+        }
+
+        // If a mole is still showing when the next one spawns, that's a miss
+        if (this.currentHole && this.currentHole.classList.contains("up")) {
+            this.onMoleMissed();
         }
 
         this.hideAllMoles();
@@ -43,7 +46,6 @@ class MoleManager {
 
         this.moleTimeout = window.setTimeout(() => {
             if (this.currentHole && this.currentHole.classList.contains("up")) {
-                this.onMoleMissed();
                 this.currentHole.classList.remove("up");
                 this.currentHole = null;
             }
